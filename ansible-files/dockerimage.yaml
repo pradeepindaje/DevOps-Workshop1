@@ -1,0 +1,10 @@
+---
+- name: pull docker image
+  hosts: localhost
+  become: yes
+  tasks:
+  - name: pull docker image
+    docker_image:
+      name: myimage:latest
+      source: pull
+  

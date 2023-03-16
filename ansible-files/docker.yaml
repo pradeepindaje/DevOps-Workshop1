@@ -1,0 +1,24 @@
+---
+- name: docker installed
+  hosts: localhost
+  become: yes
+  tasks:
+  - name: install latest docker ce
+    package:
+      name: docker-ce
+      state: latest
+  - name: install latest docker cli
+    package:
+      name: docker-ce-cli
+      state: latest
+  - name: install latest docker containerd
+    package:
+      name: containerd.io
+      state: latest        
+  - name: docker enabled and running
+    service:
+      name: docker
+      enabled: true
+      state: started    
+          
+
